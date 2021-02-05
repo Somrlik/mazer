@@ -23,13 +23,13 @@ def random_between(min_value: int, max_value: int) -> int:
 
 def get_char_for_state(state: CellState) -> str:
     if state == CellState.WALL:
-        return u'\u2588'
+        return '#' # u'\u2588'
     elif state == CellState.EMPTY:
-        return ' '
+        return '.'
     elif state == CellState.START:
-        return 'P'
+        return '.'
     elif state == CellState.END:
-        return 'X'
+        return '.'
     else:
         return '?'
 
@@ -139,6 +139,9 @@ class Maze(object):
             return invalid_coordinates_state
 
     def print_maze(self) -> None:
+        print(self.height, self.width)
+        print(self.start_point.y, self.start_point.x)
+        print(self.end_point.y, self.end_point.x)
         for i in self.map:
             for j in i:
                 print(get_char_for_state(j), end='')
